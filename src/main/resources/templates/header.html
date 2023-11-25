@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style th:fragment="header_style">
+
+    .header_category{
+        position: fixed;
+        align:center;
+        width:100%;
+        color:white;
+        background-color:wheat;
+    }
+    .header_category tr{
+        height:130px;
+    }
+    .header_category tr td{
+        font-weight:bold;
+        font-size:40px;
+        text-align: center;
+        cursor:pointer;
+    }
+
+</style>
+
+
+
+
+<div th:fragment="header">
+  <table class="header_category">
+    <tr>
+      <td th:text="Home" th:onclick="'window.location.href = \'/home\''">첫번째칸</td>
+      <td th:text="Shop" th:onclick="'window.location.href = \'/shop\''">두번째칸</td>
+      <td th:text="Board" th:onclick="'window.location.href = \'/board\''">세번째칸</td>
+      <td th:text="|My Page|" th:onclick="'window.location.href = \'/mypage\''">네번째칸</td>
+    </tr>
+
+
+  </table>
+</div>
+
+</body>
+</html>
