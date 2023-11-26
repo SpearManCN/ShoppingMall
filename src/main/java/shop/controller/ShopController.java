@@ -1,14 +1,14 @@
-package shop.project_shop.controller;
+package shop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MypageController {
-    @RequestMapping("/mypage")
+public class ShopController {
+    @RequestMapping("/shop")
     public String home(Model model){
-        return "mypage";
+        return "shop";
 
     }
 }

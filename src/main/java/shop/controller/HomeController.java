@@ -1,4 +1,4 @@
-package shop.project_shop.controller;
+package shop.controller;
 
 
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package shop.project_shop.reository;
+package shop.reository;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;

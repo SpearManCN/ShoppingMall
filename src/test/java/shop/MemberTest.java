@@ -1,4 +1,4 @@
-package shop.project_shop;
+package shop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,7 @@ public class MemberTest {
     @Test
     public void test(){
         mapper.test();
+//        System.out.println(mapper.go);
 
     }
 }

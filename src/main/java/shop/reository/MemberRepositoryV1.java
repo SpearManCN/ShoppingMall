@@ -1,8 +1,8 @@
-package shop.project_shop.reository;
+package shop.reository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import shop.project_shop.MemberMapper;
+import shop.MemberMapper;
 
 @Repository
 public class MemberRepositoryV1 implements MemberRepository{
