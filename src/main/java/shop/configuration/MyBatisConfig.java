@@ -2,7 +2,7 @@ package shop.configuration;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
-import shop.MemberMapper;
+import shop.mapper.MemberMapper;
 
 @Configuration
 @RequiredArgsConstructor

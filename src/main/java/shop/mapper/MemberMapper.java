@@ -1,4 +1,4 @@
-package shop;
+package shop.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.context.annotation.Bean;

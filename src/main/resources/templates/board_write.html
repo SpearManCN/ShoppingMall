@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Nav -->
+<div th:replace="header :: header_style"></div>
+<div th:replace="header :: header"></div>
+<div style="height:130px"></div>
+<div  th:text="게시판" style="font-size:30px;display: flex;align-items: center; justify-content: center; background-color:ivory; width:100%; height:130px"></div>
+
+<script th:inline="javascript">
+    function save(){
+        alert("작성 검증 후 작성완료 및 이동");
+        window.location.href = '/board';
+    }
+
+</script>
+
+
+
+<form name="writeForm">
+    <table align="center" style="height:570px; width:600px;">
+        <tr style="background-color:antiquewhite; width:100%; height:70px">
+            <td th:text="제목" style="width:15%; text-align: center; font-font: bold; font-size:25px" ></td>
+            <td style="width:75%"><input style="width:99%; height: 95% " type="text" name="title" ></td>
+        </tr>
+        <tr style="background-color:antiquewhite;   ">
+            <td th:text="내용" style="width:15%; text-align: center; font-font: bold; font-size:25px"> </td>
+            <td style="width:75%"><input style="width:99%; height: 99% " type="text" name="content" ></td>
+        </tr>
+
+
+    </table>
+</form>
+    <div style="height:10px;" align="center"></div>
+    <div align="center">
+    <button th:onclick="save()" th:text="작성"></button>
+    </div>
+
+
+
+</body>
+</html>

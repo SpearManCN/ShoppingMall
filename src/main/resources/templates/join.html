@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Nav-->
+<div th:replace="header :: header_style"></div>
+<div th:replace="header :: header"></div>
+<div style="height:130px"></div>
+<!--script  -->
+<script th:inline="javascript">
+function join(){
+    if( validate()==0){return;}
+    $.ajax({
+        url:"/joinProc"
+        ,type:"post"
+        ,data:$("[name=joinForm]").serialize()
+        ,success:function(data){
+            if(data!=0){alert("환영합니다")
+                window.location.href = '/home';
+            }
+        }
+        ,error:function(){
+            alert("실패하였습니다");
+        }
+    });
+}
+
+
+
+<!--유효성 검사 -->
+  function validate(){
+      if( $("[name=id]").val() == "" ||
+      $("[name=pw]").val() == "" ||
+      $("[name=pwConfirm]").val() == "" ||
+      $("[name=address]").val() == "" ||
+      $("[name=memberName]").val() == "" ||
+      $("[name=birth]").val() == "" ||
+      $("[name=phone]").val() == ""){
+        alert("모든 칸을 채워주세요");
+          return 0;
+      }
+    if(!($("[name=pw]").val() == $("[name=pwConfirm]").val())){
+      alert("비밀번호와 비밀번호 확인이 다릅니다.")
+      $("[name=pwConfirm]").val("");
+      $("[name=pw]").val("");
+      return 0;
+    }
+    return 1;
+  }
+
+</script>
+
+
+  <div th:algin="center"> 회원가입</div>
+  <form name="joinForm">
+    <input type="text" placeholder="아이디" name="id"></input>
+    <input type="password" placeholder="비밀번호" name="pw"></input>
+    <input type="password" placeholder="비밀번호 확인" name="pwConfirm"></input>
+    <input type="text" placeholder="이름" name="memberName"></input>
+    <input type="text" placeholder="생년월일(-생략 8글자)" name="birth"></input>
+    <input type="text" placeholder="휴대폰번호(-생략)" name="phone"></input>
+    <input type="text" placeholder="주소" name="address"></input>
+  </form>
+  <button th:onclick="join()" th:text="|Sign up|"></button>
+</body>
+</html>

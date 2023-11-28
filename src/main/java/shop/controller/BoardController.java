@@ -11,4 +11,9 @@ public class BoardController {
     public String home(Model model){
         return "board";
     }
+
+    @RequestMapping("/board_write")
+    public String write(Model model){
+        return "board_write";
+    }
 }

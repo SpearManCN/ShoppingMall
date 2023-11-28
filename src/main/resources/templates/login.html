@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -10,7 +11,7 @@
 <div th:replace="header :: header"></div>
 <div style="height:130px"></div>
 <!--script  -->
-<script th="inline:javascript">
+<script th:inline="javascript">
   function loginVal(){
     // $.ajax({
     //
@@ -25,6 +26,6 @@
   <input type="password" name="inputPw" placeholder="비밀번호">
   <input type="button" th:onclick="loginVal()">
 </form>
-
+<button th:onclick="'window.location.href = \'/join\''">회원가입</button>
 </body>
 </html>
