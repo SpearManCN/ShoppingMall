@@ -24,7 +24,7 @@
 <form th:name="login" th:action="post">
   <input type="text" name="inputId" placeholder="아이디">
   <input type="password" name="inputPw" placeholder="비밀번호">
-  <input type="button" th:onclick="loginVal()">
+  <button th:text="로그인">
 </form>
 <button th:onclick="'window.location.href = \'/join\''">회원가입</button>
 </body>
