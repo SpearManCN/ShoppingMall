@@ -13,4 +13,6 @@ public class LoginServiceV1 implements LoginService {
     public int join(JoinDTO joinDTO){
         return loginRepository.insertMember(joinDTO);
     }
+    @Override
+    public JoinDTO selectMember(JoinDTO joinDTO){ return loginRepository.selectMember(joinDTO);}
 }

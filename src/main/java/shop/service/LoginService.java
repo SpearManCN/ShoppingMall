@@ -5,4 +5,5 @@ import shop.domain.JoinDTO;
 
 public interface LoginService {
     public int join(JoinDTO joinDTO);
+    public JoinDTO selectMember(JoinDTO joinDTO);
 }

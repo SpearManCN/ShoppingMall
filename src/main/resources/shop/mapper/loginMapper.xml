@@ -22,4 +22,10 @@
         )
     </insert>
 
+    <select id="selectMember" resultType="JoinDTO">
+        select * from member
+        where   id=#{id}
+        and     pw=#{pw}
+
+    </select>
 </mapper>

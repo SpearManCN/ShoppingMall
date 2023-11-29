@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class JoinDTO {
+    private int memberNo;
     private String id;
     private String memberName;
     private int birth;

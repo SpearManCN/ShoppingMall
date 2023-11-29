@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.domain.JoinDTO;
 import shop.service.LoginService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class MypageController {
     @Autowired
@@ -33,4 +36,24 @@ public class MypageController {
     public int joinProc(JoinDTO joinDTO){
         return loginService.join(joinDTO);
     }
+
+    @RequestMapping("loginProc")
+    @ResponseBody
+    public int loginProc(JoinDTO joinDTO, Model model, HttpServletRequest request){
+        JoinDTO searchResult = new JoinDTO();
+        searchResult = loginService.selectMember(joinDTO);
+
+        if(searchResult == null){
+            return 0;
+        }else{
+            HttpSession session = request.getSession();
+            session.setAttribute("user", searchResult);
+            return 1;
+        }
+
+
+    }
+
+
+
 }

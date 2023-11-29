@@ -40,7 +40,8 @@
       <td th:text="Home" th:onclick="'window.location.href = \'/home\''">첫번째칸</td>
       <td th:text="Shop" th:onclick="'window.location.href = \'/shop\''">두번째칸</td>
       <td th:text="Board" th:onclick="'window.location.href = \'/board\''">세번째칸</td>
-      <td th:text="|My Page|" th:onclick="'window.location.href = \'/mypage\''">네번째칸</td>
+      <td th:if="${session.user != null}" th:text="|My Page|" th:onclick="'window.location.href = \'/mypage\''">네번째칸</td>
+      <td th:if="${session.user == null}" th:text="|Log In|" th:onclick="'window.location.href = \'/login\''">네번째칸</td>
     </tr>
 
 

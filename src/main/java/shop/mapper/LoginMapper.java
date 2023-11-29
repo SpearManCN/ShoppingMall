@@ -6,4 +6,6 @@ import shop.domain.JoinDTO;
 @Mapper
 public interface LoginMapper {
     int join(JoinDTO joinDTO);
+
+    JoinDTO selectMember(JoinDTO joinDTO);
 }

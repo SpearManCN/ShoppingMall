@@ -13,4 +13,7 @@ public class LoginRepositoryV1 implements LoginRepository{
     public int insertMember(JoinDTO joinDTO){
         return loginMapper.join(joinDTO);
     }
+
+    @Override
+    public JoinDTO selectMember(JoinDTO joinDTO){ return loginMapper.selectMember(joinDTO);}
 }

@@ -19,13 +19,13 @@ public class MemberTest {
     @Test
     public void test(){
         JoinDTO dto = new JoinDTO();
-        dto.setAddress("1");
+        dto.setAddress("14334");
         dto.setBirth(1);
-        dto.setPw("2");
-        dto.setId("1");
+        dto.setPw("223");
+        dto.setId("11523123");
         dto.setPhone(1);
         dto.setMemberName("1");
-        System.out.println(loginService.join(dto));
+        System.out.println(loginService.selectMember(dto));
 //        memberService.test();
 //        mapper.test();
 //        System.out.println(mapper.go);

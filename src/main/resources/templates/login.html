@@ -13,19 +13,33 @@
 <!--script  -->
 <script th:inline="javascript">
   function loginVal(){
-    // $.ajax({
-    //
-    // });
+      $.ajax({
+          url:"/loginProc"
+          ,data:$("[name=loginForm]").serialize()
+          ,type:"post"
+          ,success:function(data){
+              if(data==1){
+                  alert("환영합니다");
+                  window.location.href = '/home';
+              }else{
+                  alert("아이디 혹은 비밀번호가 틀렸습니다");
+              }
+          }
+          ,error:function(e){
+              alert(e.message);
+          }
+      });
   }
 </script>
 
 
 
-<form th:name="login" th:action="post">
-  <input type="text" name="inputId" placeholder="아이디">
-  <input type="password" name="inputPw" placeholder="비밀번호">
-  <button th:text="로그인">
+<form th:name="loginForm" th:action="post">
+  <input type="text" name="id" placeholder="아이디">
+  <input type="password" name="pw" placeholder="비밀번호">
 </form>
+    <button th:text="로그인" onclick="loginVal()"></button>
+
 <button th:onclick="'window.location.href = \'/join\''">회원가입</button>
 </body>
 </html>
