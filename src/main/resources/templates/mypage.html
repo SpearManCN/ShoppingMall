@@ -5,9 +5,39 @@
     <title>Title</title>
 </head>
 <body>
+<!--Nav-->
 <div th:replace="header :: header_style"></div>
 <div th:replace="header :: header"></div>
 <div style="height:130px"></div>
-  마이페이지
+<!--css -->
+<style>
+</style>
+
+<div  th:text="|내 정보|" style="font-size:30px;display: flex;align-items: center; justify-content: center; background-color:ivory; width:100%; height:130px"></div>
+
+<!--<div align="center" style="width:600px; height:800px">-->
+    <table align="center" border-collapse="collapse" border="1" bordercolor="white" style="width:500px; height:400px; background-color:burlywood; text-align: center;">
+        <tr style="height:100px;" >
+            <td style="width:30%; font-family: bold; font-size:20px;">이름</td>
+            <td style="width:70%; ">내용</td>
+        </tr>
+        <tr style="height:100px">
+            <td style="width:30%; font-family: bold; font-size:20px;">생년월일</td>
+            <td style="width:70%">내용</td>
+        </tr>
+        <tr style="height:100px">
+            <td style="width:30%; font-family: bold; font-size:20px;">폰번호</td>
+            <td style="width:70%">내용</td>
+        </tr>
+        <tr style="height:100px">
+            <td style="width:30%; font-family: bold; font-size:20px;">주소</td>
+            <td style="width:70%">내용</td>
+        </tr>
+
+
+    </table>
+
+<!--</div>-->
+
 </body>
 </html>

@@ -33,7 +33,7 @@
 <div align="center" style="align-content: center;">
     1 2,23,3,4,5,6
 
-    <button th:text="글쓰기" th:onclick="'window.location.href = \'/board_write\''"> </button>
+    <button th:if="${session.user}" th:text="글쓰기" th:onclick="'window.location.href = \'/board_write\''"> </button>
 </div>
 
 
