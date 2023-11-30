@@ -16,4 +16,8 @@ public class LoginRepositoryV1 implements LoginRepository{
 
     @Override
     public JoinDTO selectMember(JoinDTO joinDTO){ return loginMapper.selectMember(joinDTO);}
+
+    @Override
+    public void updateMember(JoinDTO joinDTO){loginMapper.updateMember(joinDTO);}
+
 }

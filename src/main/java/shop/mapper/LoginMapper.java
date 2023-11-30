@@ -8,4 +8,6 @@ public interface LoginMapper {
     int join(JoinDTO joinDTO);
 
     JoinDTO selectMember(JoinDTO joinDTO);
+
+    void updateMember(JoinDTO joinDTO);
 }

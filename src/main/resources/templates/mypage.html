@@ -15,29 +15,26 @@
 
 <div  th:text="|내 정보|" style="font-size:30px;display: flex;align-items: center; justify-content: center; background-color:ivory; width:100%; height:130px"></div>
 
-<!--<div align="center" style="width:600px; height:800px">-->
     <table align="center" border-collapse="collapse" border="1" bordercolor="white" style="width:500px; height:400px; background-color:burlywood; text-align: center;">
         <tr style="height:100px;" >
             <td style="width:30%; font-family: bold; font-size:20px;">이름</td>
-            <td style="width:70%; ">내용</td>
+            <td style="width:70%;" th:text="${session.user.memberName}" >내용</td>
         </tr>
         <tr style="height:100px">
             <td style="width:30%; font-family: bold; font-size:20px;">생년월일</td>
-            <td style="width:70%">내용</td>
+            <td style="width:70%" th:text="${session.user.birth}">내용</td>
         </tr>
         <tr style="height:100px">
             <td style="width:30%; font-family: bold; font-size:20px;">폰번호</td>
-            <td style="width:70%">내용</td>
+            <td style="width:70%" th:text="${session.user.phone}">내용</td>
         </tr>
         <tr style="height:100px">
             <td style="width:30%; font-family: bold; font-size:20px;">주소</td>
-            <td style="width:70%">내용</td>
+            <td style="width:70%" th:text="${session.user.address}">내용</td>
         </tr>
-
-
     </table>
-
-<!--</div>-->
-
+<div align="center">
+<button th:text="|비밀번호 변경하기|" th:onclick="'window.location.href = \'/mypage_change\''"></button>
+</div>
 </body>
 </html>

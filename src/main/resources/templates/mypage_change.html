@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script th:inline="javascript">
+    function change(){
+        if($("[name=pw]").val() == ""|| $("[name=pwConfirm]").val() != $("[name=pw]").val()){
+            alert("다시 확인해주세요"); return;
+        }else{
+            $.ajax({
+                url:"/mypage_changeProc"
+                ,type:"post"
+                ,data:$("[name=changeForm]").serialize()
+                ,success:function(){
+                    alert("변경 완료");
+                    window.location.href = '/home';
+                }
+                ,error:function(e){alert(e.message);}
+            });
+        }
+    }
+</script>
+
+<!--Nav-->
+<div th:replace="header :: header_style"></div>
+<div th:replace="header :: header"></div>
+<div style="height:130px"></div>
+
+
+<div  th:text="|내 정보|" style="font-size:30px;display: flex;align-items: center; justify-content: center; background-color:ivory; width:100%; height:130px"></div>
+
+<form name="changeForm" action="post">
+<table style="text-align: center;background-color:burlywood" border-collapse="collapse" border="1" bordercolor="white" align="center" width="500px" height="300px" >
+  <tr>
+    <td>새 비밀번호</td>
+    <td><input width="99%" height="100%" type="password" name="pw"></td>
+  </tr>
+</form>
+  <tr>
+    <td>비밀번호 확인</td>
+    <td><input width="99%" height="100%" type="password" name="pwConfirm"> </td>
+  </tr>
+</table>
+
+<div width="100%" height="30px"> </div>
+<div align="center">
+<a style="cursor:pointer; width:80px; font-size:15px; font-family: bold; background-color:goldenrod;"  th:onclick="change()">변경하기</a>
+</div>
+
+</body>
+</html>

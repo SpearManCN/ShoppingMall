@@ -17,9 +17,34 @@ public class MypageController {
     LoginService loginService;
 
     @RequestMapping("/mypage")
-    public String home(Model model){
+    public String mypage(Model model){
         return "mypage";
     }
+
+    @RequestMapping("/mypage_change")
+    public String mypageChange(Model model){return "mypage_change";}
+
+    @RequestMapping("/mypage_changeProc")
+    @ResponseBody
+    public void mypageChangeProc(JoinDTO joinDTO, HttpServletRequest request){
+        JoinDTO user = new JoinDTO();
+        HttpSession session = request.getSession();
+        user = (JoinDTO) session.getAttribute("user");
+        user.setPw(joinDTO.getPw());
+        loginService.updateMember(user);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     @RequestMapping("/login")
     public String login(Model model){

@@ -28,4 +28,8 @@
         and     pw=#{pw}
 
     </select>
+
+    <update id="updateMember">
+        update member set pw = #{pw} where id=#{id}
+    </update>
 </mapper>
