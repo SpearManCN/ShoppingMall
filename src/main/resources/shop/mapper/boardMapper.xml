@@ -10,4 +10,7 @@
 
     </insert>
 
+    <select id="selectAllBoard" resultType="BoardDTO">
+        select * from board;
+    </select>
 </mapper>

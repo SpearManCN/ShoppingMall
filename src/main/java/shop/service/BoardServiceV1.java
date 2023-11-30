@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import shop.domain.BoardDTO;
 import shop.reository.BoardRepository;
 
+import java.util.List;
+
 @Service
 public class BoardServiceV1 implements BoardService{
     @Autowired
@@ -12,5 +14,9 @@ public class BoardServiceV1 implements BoardService{
     @Override
     public void insertBoard(BoardDTO boardDTO){
         boardRepository.insertBoard(boardDTO);
+    }
+    @Override
+    public List selectAllBoard(){
+        return boardRepository.selectAllBoard();
     }
 }

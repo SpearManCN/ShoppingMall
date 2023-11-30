@@ -12,6 +12,8 @@ import shop.service.BoardServiceV1;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class BoardController {
@@ -20,6 +22,17 @@ public class BoardController {
 
     @RequestMapping("/board")
     public String home(Model model){
+        List<BoardDTO> result = new ArrayList<>();
+        result = boardService.selectAllBoard();
+        model.addAttribute("Boards",result);
+
+        int totNo = result.size();
+        int noPerPage = 10;
+        int totPage;
+        int minNo;
+        int maxNo;
+
+
         return "board";
     }
 

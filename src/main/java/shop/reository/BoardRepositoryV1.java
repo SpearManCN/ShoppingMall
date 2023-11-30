@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import shop.mapper.BoardMapper;
 import shop.domain.BoardDTO;
+
+import java.util.List;
+
 @Repository
 public class BoardRepositoryV1 implements BoardRepository {
     @Autowired
@@ -11,5 +14,9 @@ public class BoardRepositoryV1 implements BoardRepository {
     @Override
     public void insertBoard(BoardDTO boardDTO){
         boardMapper.insertBoard(boardDTO);
+    }
+    @Override
+    public List selectAllBoard(){
+        return boardMapper.selectAllBoard();
     }
 }
