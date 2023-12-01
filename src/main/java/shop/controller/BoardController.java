@@ -4,6 +4,7 @@ package shop.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,14 +45,6 @@ public class BoardController {
 
         return "board";
     }
-/* html에서 페이지 번호를 input hidden에 넣어놓고 $(init();) 에서 controller에 있는 값을 가져와서 넣어줌
-    해당 hidden값으로
-    처음 -> url입력시 controller에서 기본값인 1을 넘겨줌.
-    숫자를 고를때 -> 고른 숫자를 url에 같이 넘겨줘서 contoller에서 해당 숫자를 기준으로 10개를 가져다가 줌
-
-*
-*
-* */
     @RequestMapping("/board_write")
     public String write(Model model){
         return "board_write";
@@ -64,5 +57,12 @@ public class BoardController {
         JoinDTO joinDTO = (JoinDTO) session.getAttribute("user");
         boardDTO.setMemberNo(joinDTO.getMemberNo());
         boardService.insertBoard(boardDTO);
+    }
+
+    @RequestMapping("/board_detail/{no}")
+    public String detail(Model model, @PathVariable("no") int no){
+
+        return "board_detail";
+
     }
 }
