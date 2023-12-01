@@ -11,6 +11,8 @@
     </insert>
 
     <select id="selectAllBoard" resultType="BoardDTO">
-        select * from board;
+        select a.boardNo, a.memberNo, a.title, a.content, b.memberName
+        from board a inner join member b On a.memberNo = b.memberNo
+        order by 1 desc;
     </select>
 </mapper>

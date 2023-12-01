@@ -8,4 +8,5 @@ public class BoardDTO {
     private int memberNo;
     private String title;
     private String content;
+    private String memberName;
 }
