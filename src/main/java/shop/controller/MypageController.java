@@ -75,10 +75,12 @@ public class MypageController {
             session.setAttribute("user", searchResult);
             return 1;
         }
-
-
     }
-
+    @RequestMapping("/mypage_logout")
+    public String logout(HttpServletRequest request){
+        request.getSession().invalidate();
+        return "home";
+    }
 
 
 }

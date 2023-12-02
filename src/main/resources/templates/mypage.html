@@ -12,6 +12,15 @@
 <!--css -->
 <style>
 </style>
+<script th:inline="javascript">
+    function logout(){
+        if(confirm("로그아웃 하시겠습니까?")){
+            window.location.href = '/mypage_logout';
+        }else{return;}
+
+    }
+</script>
+
 
 <div  th:text="|내 정보|" style="font-size:30px;display: flex;align-items: center; justify-content: center; background-color:ivory; width:100%; height:130px"></div>
 
@@ -29,12 +38,13 @@
             <td style="width:70%" th:text="${session.user.phone}">내용</td>
         </tr>
         <tr style="height:100px">
-            <td style="width:30%; font-family: bold; font-size:20px;">주소</td>
+            <td style="width:30%; font-fam  ily: bold; font-size:20px;">주소</td>
             <td style="width:70%" th:text="${session.user.address}">내용</td>
         </tr>
     </table>
 <div align="center">
-<button th:text="|비밀번호 변경하기|" th:onclick="'window.location.href = \'/mypage_change\''"></button>
+    <button th:text="|비밀번호 변경하기|" th:onclick="'window.location.href = \'/mypage_change\''"></button>
+    <button th:text="|로그아웃|" th:onclick="logout()"></button>
 </div>
 </body>
 </html>
