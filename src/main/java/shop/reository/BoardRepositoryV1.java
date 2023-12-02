@@ -19,4 +19,7 @@ public class BoardRepositoryV1 implements BoardRepository {
     public List selectAllBoard(){
         return boardMapper.selectAllBoard();
     }
+
+    @Override
+    public BoardDTO selectOneBoard(BoardDTO boardDTO){return boardMapper.selectOneBoard(boardDTO);}
 }

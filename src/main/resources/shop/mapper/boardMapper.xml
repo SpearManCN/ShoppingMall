@@ -15,4 +15,9 @@
         from board a inner join member b On a.memberNo = b.memberNo
         order by 1 desc;
     </select>
+
+    <select id="selectOneBoard" resultType="BoardDTO">
+        select * from board where boardNo = #{boardNo}
+
+    </select>
 </mapper>

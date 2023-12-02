@@ -10,4 +10,6 @@ public interface BoardRepository {
     public void insertBoard(BoardDTO boardDTO);
 
     public List<BoardDTO> selectAllBoard();
+
+    public BoardDTO selectOneBoard(BoardDTO boardDTO);
 }

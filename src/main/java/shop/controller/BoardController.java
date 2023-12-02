@@ -35,7 +35,9 @@ public class BoardController {
         int totPage = totNo/10 + zeroLast; //totpage는 총 페이지의 갯수( 글갯수아님)
         int startBoardNo = (nowPageNo)*10-10; //페이지당 시작글 번호
         int endBoardNo = startBoardNo +10;  //페이지당 끝 글 번호
-        if(nowPageNo == totPage){endBoardNo= startBoardNo + totNo%10; }
+        int totNoData = totNo%10;
+        if(totNoData==0){totNoData=10;}
+        if(nowPageNo == totPage){endBoardNo= startBoardNo + totNoData; }
         afterResult = beforeResult.subList(startBoardNo,endBoardNo);
         model.addAttribute("Boards", afterResult);
         List pageList = new ArrayList();
@@ -61,7 +63,10 @@ public class BoardController {
 
     @RequestMapping("/board_detail/{no}")
     public String detail(Model model, @PathVariable("no") int no){
-
+        BoardDTO noData = new BoardDTO();
+        noData.setBoardNo(no);
+        noData = boardService.selectOneBoard(noData);
+        model.addAttribute("board", noData);
         return "board_detail";
 
     }

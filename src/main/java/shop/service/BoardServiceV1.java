@@ -19,4 +19,7 @@ public class BoardServiceV1 implements BoardService{
     public List selectAllBoard(){
         return boardRepository.selectAllBoard();
     }
+
+    @Override
+    public BoardDTO selectOneBoard(BoardDTO boardDTO){return boardRepository.selectOneBoard(boardDTO);}
 }

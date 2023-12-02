@@ -10,4 +10,6 @@ public interface BoardMapper {
     public void insertBoard(BoardDTO boardDTO);
 
     public List selectAllBoard();
+
+    public BoardDTO selectOneBoard(BoardDTO boardDTO);
 }
