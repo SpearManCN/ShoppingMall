@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="header :: header_style"></div>
+<div th:replace="header :: header"></div>
+<div style="height:134px"></div>
+<style >
+</style>
+
+<Div align="center" style="position: fixed; width:100%" >
+    <table align="center" style=" width:80%; background-color: cornflowerblue">
+        <tr style="text-align: center; height: 50px;cursor:pointer;">
+            <td  style="font-size:30px; font-family: bold; width:25%; color:white;" th:onclick="'window.location.href = \'/shop\''">
+                OUTER
+            </td>
+            <td  style="font-size:30px; font-family: bold; width:25%; color:white;" th:onclick="'window.location.href = \'/shop_top\''">
+                TOP
+            </td>
+            <td  style="font-size:30px; font-family: bold; width:25%; color:white;" th:onclick="'window.location.href = \'/shop_pants\''">
+                PANTS
+            </td>
+            <td  style="font-size:35px; font-family: bold; width:25%; color:sandybrown;">
+                SHOES
+            </td>
+
+        </tr>
+    </table>
+</Div>
+<div style="height:100px"></div>
+</body>
+</html>
