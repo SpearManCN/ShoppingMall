@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    ul {
+        list-style-type: none;
+    }
+    li {
+        font-family: "한컴 말랑말랑 Bold";
+        font-size: 35px;
+
+    }
+</style>
+
+<div th:replace="header :: header_style"></div>
+<div th:replace="header :: header"></div>
+<div style="height:234px"></div>
+
+
+<table align="center" style="width:500px;">
+    <tr style="height: 500px">
+        <td colspan="2" style="background-color: black; width:500px; height: 100%">
+            <img th:src="'/images/outer1.png'" style="width: 500px; height: 500px">
+        </td>
+    </tr>
+    <tr style="height: 60px; background-color: red;">
+        <td colspan="2" width="250px">상품명</td>
+    </tr>
+    <tr style="height: 60px; background-color: green;">
+        <td width="50%">Stock - []</td>
+        <td width="50%">Price - []</td>
+    </tr>
+</table>
+<div style="height: 15px;"></div>
+<div align="center" style="text-align: center">
+<input type="button" onclick="alert('f')" style="width:120px;border: none;
+            padding: 10px 20px;
+            border-radius: 10px; /* 모서리를 둥글게 하는 부분 */
+            background-color: #6F4E37; /* 바탕색을 분홍색으로 설정 */
+            color: white;" value="Buy">
+</div>
+</body>
+</html>

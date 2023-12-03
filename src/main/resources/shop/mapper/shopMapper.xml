@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="shop.mapper.ShopMapper">
+    <select id="selectOuter" resultType="ItemDTO">
+        select * from item where sortNo = 1;
+    </select>
+    <select id="selectTop" resultType="ItemDTO">
+        select * from item where sortNo = 2;
+    </select>
+    <select id="selectPants" resultType="ItemDTO">
+        select * from item where sortNo = 3;
+    </select>
+    <select id="selectShoes" resultType="ItemDTO">
+        select * from item where sortNo = 4;
+    </select>
+</mapper>

@@ -16,18 +16,18 @@
 </style>
 
 <Div align="center" style="position: fixed; width:100%; z-index:100;" >
-    <table align="center" style=" width:80%; background-color: cornflowerblue">
+    <table align="center" style=" width:80%;">
         <tr style="text-align: center; height: 50px;cursor:pointer;">
-            <td  style="font-size:30px; font-family: bold; width:25%; color:white;" th:onclick="'window.location.href = \'/shop\''">
+            <td  style="font-size:30px; font-family: bold; width:25%; color:black;" th:onclick="'window.location.href = \'/shop\''">
                 OUTER
             </td>
-            <td  style="font-size:30px; font-family: bold; width:25%; color:white;" th:onclick="'window.location.href = \'/shop_top\''">
+            <td  style="font-size:30px; font-family: bold; width:25%; color:black;" th:onclick="'window.location.href = \'/shop_top\''">
                 TOP
             </td>
-            <td  style="font-size:30px; font-family: bold; width:25%; color:white;" th:onclick="'window.location.href = \'/shop_pants\''">
+            <td  style="font-size:30px; font-family: bold; width:25%; color:black;" th:onclick="'window.location.href = \'/shop_pants\''">
                 PANTS
             </td>
-            <td  style="font-size:35px; font-family: bold; width:25%; color:sandybrown;">
+            <td  style="font-size:35px; font-family: bold; width:25%; color:#D2B48C;">
                 SHOES
             </td>
 
@@ -35,5 +35,30 @@
     </table>
 </Div>
 <div style="height:100px"></div>
+
+
+<table align="center" width="1200px">
+
+    <div class="row" align="center">
+
+        <div class="col" th:each="item : ${items}">
+            <div class="card" style="width: 18rem;">
+                <img th:src="'/images/shoes'+${item.itemNo-31}+'.png'" class="card-img-top" width="100px" height="300px" style="cursor:pointer" onclick="alert('d')">
+                <div class="card-body">
+                    <div style="height:40px;">
+                        <h7 class="card-title" th:text="${item.itemName}">옷 이름</h7></div>
+                    <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <input type="button" onclick="alert('f')" style="width:120px;border: none;
+            padding: 10px 20px;
+            border-radius: 10px; /* 모서리를 둥글게 하는 부분 */
+            background-color: #6F4E37; /* 바탕색을 분홍색으로 설정 */
+            color: white;" value="Detail"> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><span>&#x2764;</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</table>
 </body>
 </html>
