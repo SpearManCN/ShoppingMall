@@ -32,4 +32,10 @@
     <update id="updateMember">
         update member set pw = #{pw} where id=#{id}
     </update>
+
+    <select id="selectBasket" resultType="BasketDTO">
+        select a.basketNo, a.itemNo, a.memberNo, b.itemName, b.price, b.stock
+        from basket a Inner JOIN item b on a.itemNo = b.itemNo
+        where a.memberNo = #{memberNo}
+    </select>
 </mapper>

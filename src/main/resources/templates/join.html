@@ -55,16 +55,21 @@ function join(){
 </script>
 
 
-  <div th:algin="center"> 회원가입</div>
+  <div style="font-size: 50px; font-family: bold;" align="center">SIGN UP</div>
   <form name="joinForm">
-    <input type="text" placeholder="아이디" name="id"></input>
-    <input type="password" placeholder="비밀번호" name="pw"></input>
-    <input type="password" placeholder="비밀번호 확인" name="pwConfirm"></input>
-    <input type="text" placeholder="이름" name="memberName"></input>
-    <input type="text" placeholder="생년월일(-생략 8글자)" name="birth"></input>
-    <input type="text" placeholder="휴대폰번호(-생략)" name="phone"></input>
-    <input type="text" placeholder="주소" name="address"></input>
+      <div align="center">
+      <div><input type="text" placeholder="아이디" name="id"></div>
+      <div><input type="password" placeholder="비밀번호" name="pw"></div>
+      <div><input type="password" placeholder="비밀번호 확인" name="pwConfirm"></div>
+      <div><input type="text" placeholder="이름" name="memberName"></div>
+      <div><input type="text" placeholder="생년월일(-생략 8글자)" name="birth"></div>
+      <div><input type="text" placeholder="휴대폰번호(-생략)" name="phone"></div>
+      <div><input type="text" placeholder="주소" name="address"></div>
+      </div>
   </form>
-  <button th:onclick="join()" th:text="|Sign up|"></button>
+    <div align="center">
+        <button th:onclick="join()" th:text="|Sign up|"></button>
+    </div>
+
 </body>
 </html>

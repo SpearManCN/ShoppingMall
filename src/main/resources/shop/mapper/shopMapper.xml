@@ -19,7 +19,12 @@
     <select id="selectOne" resultType="ItemDTO">
         select * from item where itemNo = #{itemNo};
     </select>
+
     <update id="updateHeart">
         update item set heart = heart+1 where itemNo = #{itemNo}
     </update>
+
+    <insert id="insertBasket">
+        insert into basket(itemNo, memberNo) values(#{itemNo},#{memberNo})
+    </insert>
 </mapper>

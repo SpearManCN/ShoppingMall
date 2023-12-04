@@ -2,8 +2,11 @@ package shop.reository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import shop.domain.BasketDTO;
 import shop.domain.JoinDTO;
 import shop.mapper.LoginMapper;
+
+import java.util.List;
 
 @Repository
 public class LoginRepositoryV1 implements LoginRepository{
@@ -19,5 +22,7 @@ public class LoginRepositoryV1 implements LoginRepository{
 
     @Override
     public void updateMember(JoinDTO joinDTO){loginMapper.updateMember(joinDTO);}
+    @Override
+    public List<BasketDTO> selectBasket(JoinDTO joinDTO){return loginMapper.selectBasket(joinDTO);}
 
 }

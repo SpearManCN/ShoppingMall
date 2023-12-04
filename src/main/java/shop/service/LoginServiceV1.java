@@ -2,8 +2,11 @@ package shop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import shop.domain.BasketDTO;
 import shop.domain.JoinDTO;
 import shop.reository.LoginRepository;
+
+import java.util.List;
 
 @Service
 public class LoginServiceV1 implements LoginService {
@@ -17,4 +20,6 @@ public class LoginServiceV1 implements LoginService {
     public JoinDTO selectMember(JoinDTO joinDTO){ return loginRepository.selectMember(joinDTO);}
     @Override
     public void updateMember(JoinDTO joinDTO){loginRepository.updateMember(joinDTO);}
+    @Override
+    public List<BasketDTO> selectBasket(JoinDTO joinDTO){return loginRepository.selectBasket(joinDTO);}
 }

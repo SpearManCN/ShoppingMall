@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Nav-->
+<div th:replace="header :: header_style"></div>
+<div th:replace="header :: header"></div>
+<div style="height:130px"></div>
+
+
+<div  th:text="|장바구니|" style="font-size:30px;display: flex;align-items: center; justify-content: center; background-color:ivory; width:100%; height:130px"></div>
+
+<table align="center" border-collapse="collapse" border="1" bordercolor="white" style="width:500px; background-color:burlywood; text-align: center;">
+  <tr style="height:40px;" >
+    <td style="width:60%; font-family: bold; font-size:20px;">상품명</td>
+    <td style="width:25%; font-family: bold; font-size:20px;">가격</td>
+    <td style="width:15%; font-family: bold; font-size:20px;">재고</td>
+  </tr>
+    <tr style="cursor:pointer; background-color: wheat; height:25px;" th:each="basket : ${baskets}" th:onclick="'window.location.href = \'/shop_detail/'+${basket.itemNo}+'\''">
+        <td th:text="${basket.itemName}" style="width:60%; font-family: bold; font-size:20px;">상품명</td>
+        <td th:text="${basket.price}" style="width:25%; font-family: bold; font-size:20px;">가격</td>
+        <td th:text="${basket.stock}" style="width:15%; font-family: bold; font-size:20px;">재고</td>
+    </tr>
+</table>
+
+</body>
+</html>

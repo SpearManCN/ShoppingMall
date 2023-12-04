@@ -5,11 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import shop.domain.BasketDTO;
 import shop.domain.JoinDTO;
 import shop.service.LoginService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MypageController {
@@ -33,7 +36,14 @@ public class MypageController {
         user.setPw(joinDTO.getPw());
         loginService.updateMember(user);
     }
+    @RequestMapping("/mypage_basket")
+    public String mypageBasket(HttpServletRequest request, Model model){
+        List<BasketDTO> result = new ArrayList<>();
 
+        result = loginService.selectBasket((JoinDTO)request.getSession().getAttribute("user"));
+        model.addAttribute("baskets", result);
+        return "mypage_basket";
+    }
 
 
 

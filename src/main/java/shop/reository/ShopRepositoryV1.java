@@ -2,6 +2,7 @@ package shop.reository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import shop.domain.BasketDTO;
 import shop.domain.ItemDTO;
 import shop.mapper.ShopMapper;
 
@@ -22,5 +23,7 @@ public class ShopRepositoryV1 implements ShopRepository{
     @Override
     public ItemDTO selectOne(ItemDTO itemDTO){return shopMapper.selectOne(itemDTO);}
     @Override
-    public void updateHeart(ItemDTO itemDTO, int memberNo){shopMapper.updateHeart(itemDTO,memberNo);}
+    public void updateHeart(BasketDTO basketDTO){shopMapper.updateHeart(basketDTO);}
+    @Override
+    public void insertBasket(BasketDTO basketDTO){shopMapper.insertBasket(basketDTO);}
 }
