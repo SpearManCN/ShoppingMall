@@ -27,4 +27,8 @@ public class ShopServiceV1 implements ShopService {
     public List<ItemDTO> selectShoes(){
         return shopRepository.selectShoes();
     }
+    @Override
+    public ItemDTO selectOne(ItemDTO itemDTO){return shopRepository.selectOne(itemDTO);}
+    @Override
+    public void updateHeart(ItemDTO itemDTO, int memberNo){shopRepository.updateHeart(itemDTO,memberNo);}
 }

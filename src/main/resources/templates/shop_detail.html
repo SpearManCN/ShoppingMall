@@ -21,18 +21,18 @@
 <div style="height:234px"></div>
 
 
-<table align="center" style="width:500px;">
+<table align="center" style="width:500px;text-align: center ">
     <tr style="height: 500px">
         <td colspan="2" style="background-color: black; width:500px; height: 100%">
-            <img th:src="'/images/outer1.png'" style="width: 500px; height: 500px">
+            <img th:src="'/images/'+${pic}+${item.itemNo}+'.png'" style="width: 500px; height: 500px">
         </td>
     </tr>
-    <tr style="height: 60px; background-color: red;">
-        <td colspan="2" width="250px">상품명</td>
+    <tr style="height: 60px; background-color: wheat; font-size:20px">
+        <td th:text="${item.itemName}" colspan="2" width="250px" >상품명</td>
     </tr>
-    <tr style="height: 60px; background-color: green;">
-        <td width="50%">Stock - []</td>
-        <td width="50%">Price - []</td>
+    <tr style="height: 60px; background-color: wheat; font-size: 20px">
+        <td th:text="'Stock - ['+${item.stock}+']'" width="50%">Stock - [] </td>
+        <td th:text="'Price - ['+${item.price}+']'" width="50%">Price - []</td>
     </tr>
 </table>
 <div style="height: 15px;"></div>

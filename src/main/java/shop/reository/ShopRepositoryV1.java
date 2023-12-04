@@ -19,4 +19,8 @@ public class ShopRepositoryV1 implements ShopRepository{
     public List<ItemDTO> selectPants(){return shopMapper.selectPants();}
     @Override
     public List<ItemDTO> selectShoes(){return shopMapper.selectShoes();}
+    @Override
+    public ItemDTO selectOne(ItemDTO itemDTO){return shopMapper.selectOne(itemDTO);}
+    @Override
+    public void updateHeart(ItemDTO itemDTO, int memberNo){shopMapper.updateHeart(itemDTO,memberNo);}
 }

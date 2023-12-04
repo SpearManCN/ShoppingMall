@@ -15,4 +15,11 @@
     <select id="selectShoes" resultType="ItemDTO">
         select * from item where sortNo = 4;
     </select>
+
+    <select id="selectOne" resultType="ItemDTO">
+        select * from item where itemNo = #{itemNo};
+    </select>
+    <update id="updateHeart">
+        update item set heart = heart+1 where itemNo = #{itemNo}
+    </update>
 </mapper>

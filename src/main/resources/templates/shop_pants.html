@@ -14,7 +14,7 @@
 <div th:replace="header :: header"></div>
 <div style="height:134px"></div>
 
-<Div align="center" style="position: fixed; width:100%; z-index:100;" >
+<Div align="center" style=" width:100%;" >
     <table align="center" style=" width:80%;">
         <tr style="text-align: center; height: 50px; cursor:pointer;">
             <td  style="font-size:30px; font-family: bold; width:25%; color:black;" th:onclick="'window.location.href = \'/shop\''">
@@ -42,16 +42,16 @@
 
         <div class="col" th:each="item : ${items}">
             <div class="card" style="width: 18rem;">
-                <img th:src="'/images/pants'+${item.itemNo-13}+'.png'" class="card-img-top" width="100px" height="300px" style="cursor:pointer" onclick="alert('d')">
+                <img th:src="'/images/pants'+${item.itemNo-13}+'.png'" class="card-img-top" width="100px" height="300px" style="cursor:pointer" th:onclick="'window.location.href = \'/shop_detail/'+${item.itemNo}+'\''">
                 <div class="card-body">
                     <div style="height:40px;">
                         <h7 class="card-title" th:text="${item.itemName}">옷 이름</h7></div>
                     <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                    <input type="button" onclick="alert('f')" style="width:120px;border: none;
+                    <input type="button" th:onclick="'window.location.href = \'/shop_detail/'+${item.itemNo}+'\''" style="width:120px;border: none;
             padding: 10px 20px;
             border-radius: 10px; /* 모서리를 둥글게 하는 부분 */
             background-color: #6F4E37; /* 바탕색을 분홍색으로 설정 */
-            color: white;" value="Detail"> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><span>&#x2764;</span>
+            color: white;" value="Detail"> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><span>&#x2665;</span>
                 </div>
             </div>
         </div>
