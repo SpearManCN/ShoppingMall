@@ -1,6 +1,7 @@
-# ShoppingMall 프로젝트
-# start "23.11.24" ~ 
-
+![image](https://github.com/SpearManCN/ShoppingMall/assets/119284822/6cf79174-3b5a-4068-b145-2be06d8a032a)# ShoppingMall 프로젝트
+# 기간 "23.11.24" ~ 
+프로젝트 1차 완성 = ~ 12.05
+aws, 소셜 로그인, jwt, 결제 api 시험 = 12.05 ~
 ## 세번째 프로젝트
 #### 개인 프로젝트, 1인
 #### 주제 = "쇼핑몰 사이트"
@@ -21,11 +22,42 @@
 
 #### 상세 
 ### 메인 페이지
-슬라이드와 하단 포스터로 현재 상영중인 영화들중 몇가지를
-보거나 이동할 수 있다.
+<img src="src/main/resources/static/images/erd.png">
+슬라이드로 인기 상품이나 이벤트 몇가지를 보거나 이동가능
 
 
 
-### 로그인 페이지
-session을 이용했으며 추후에 jwt을 이용한 인증/인가를 공부하여 추가할예정
+
+### 상품 페이지
+<img src="src/main/resources/static/images/shop_outer.png">
+<img src="src/main/resources/static/images/shop_top.png">
+<img src="src/main/resources/static/images/shop_pants.png">
+<img src="src/main/resources/static/images/shop_shoes.png">
+Shop-> 카테고리 4가지로 분류해서 상품들을 보이게하고 상세보기와 찜(장바구니담기)기능을 추가
+
+
+<img src="src/main/resources/static/images/shop_detail.png">
+상품 상세화면
+
+
+
+### 게시판 페이지
+<img src="src/main/resources/static/images/board1.png">
+<img src="src/main/resources/static/images/board_detail.png">
+게시판 리스트와 글쓰기
+
+
+
+
+
+
+
+### 로그인/마이페이지
+<img src="src/main/resources/static/images/login.png">
+<img src="src/main/resources/static/images/join.png">
+로그인페이지와 회원가입
+
+<img src="src/main/resources/static/images/mypage.png">
+<img src="src/main/resources/static/images/mypage_change.png">
+내 정보 페이지와 비밀번호 변경
 
