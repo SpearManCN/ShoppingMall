@@ -3,9 +3,9 @@ package shop;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
-import shop.configuration.MyBatisConfig;
+import shop.configuration.WebConfig;
 
-@Import(MyBatisConfig.class)
+@Import(WebConfig.class)
 @SpringBootApplication
 public class ProjectShopApplication {
 
