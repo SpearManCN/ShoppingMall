@@ -25,6 +25,14 @@
 <div  th:text="|내 정보|" style="font-size:30px;display: flex;align-items: center; justify-content: center; background-color:ivory; width:100%; height:130px"></div>
 
     <table align="center" border-collapse="collapse" border="1" bordercolor="white" style="width:500px; height:400px; background-color:burlywood; text-align: center;">
+        <tr th:if="${session.user.pictureUuidName!=null}"
+            style="height:500px;" >
+            <td colspan="2" >
+                <img width="500px" height="500px" src="/images/files/25852d00-d25b-4ce0-adee-47bac3881f5f.png">
+                <div th:text="'/images/files/'+${session.user.pictureUuidName}"></div>
+                <img width="500px" height="500px" th:src="'/images/files/'+${session.user.pictureUuidName}" th:onclick="'window.location.href = \'/pictureDown\''">
+            </td>
+        </tr>
         <tr style="height:100px;" >
             <td style="width:30%; font-family: bold; font-size:20px;">이름</td>
             <td style="width:70%;" th:text="${session.user.memberName}" >내용</td>

@@ -72,16 +72,6 @@ function join(){
           <div><input value="|사진 첨부|" type="file" name="fileName"></div>
       </div>
   </form>
-
-
-    <form method="post" name="test" enctype="multipart/form-data" action="/test2">
-        <input type="file" name="fileName">
-        <input type="submit">
-    </form>
-    <div th:if="${data}!=null" th:test="${data}"> </div>
-
-
-
     <div align="center">
         <button th:onclick="join()" th:text="|Sign up|"></button>
     </div>
