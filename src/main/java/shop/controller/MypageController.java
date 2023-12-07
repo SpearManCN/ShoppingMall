@@ -1,26 +1,34 @@
 package shop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import shop.domain.BasketDTO;
 import shop.domain.JoinDTO;
 import shop.service.LoginService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class MypageController {
     @Autowired
     LoginService loginService;
+    @Value("${file.dir}")
+    private String fileDir;
 
     @RequestMapping("/mypage")
     public String mypage(Model model){
+
         return "mypage";
     }
 
@@ -68,9 +76,28 @@ public class MypageController {
 
     @RequestMapping("/joinProc")
     @ResponseBody
-    public int joinProc(JoinDTO joinDTO){
+    public int joinProc(JoinDTO joinDTO)throws Exception{
+        MultipartFile file = joinDTO.getFileName();
+        if(!file.isEmpty()){
+            String originName = file.getOriginalFilename();
+            int pos = originName.lastIndexOf(".");
+            String ext = originName.substring(pos + 1);
+            String uuid = UUID.randomUUID().toString();
+            String uuidName = uuid + "." + ext;
+            joinDTO.setPictureOriginName(originName);
+            joinDTO.setPictureUuidName(uuidName);
+
+            String fullPath = fileDir + uuidName;
+            file.transferTo(new File(fullPath));
+        }
         return loginService.join(joinDTO);
     }
+
+
+
+
+
+
 
     @RequestMapping("loginProc")
     @ResponseBody

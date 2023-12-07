@@ -14,10 +14,14 @@
 <script th:inline="javascript">
 function join(){
     if( validate()==0){return;}
+    var formData = new FormData($("[name=joinForm]")[0]);
     $.ajax({
         url:"/joinProc"
         ,type:"post"
-        ,data:$("[name=joinForm]").serialize()
+        ,processData: false
+        ,contentType: false
+        ,data:formData
+            // $("[name=joinForm]").serialize()
         ,success:function(data){
             if(data!=0){alert("환영합니다")
                 window.location.href = '/home';
@@ -65,8 +69,19 @@ function join(){
       <div><input type="text" placeholder="생년월일(-생략 8글자)" name="birth"></div>
       <div><input type="text" placeholder="휴대폰번호(-생략)" name="phone"></div>
       <div><input type="text" placeholder="주소" name="address"></div>
+          <div><input value="|사진 첨부|" type="file" name="fileName"></div>
       </div>
   </form>
+
+
+    <form method="post" name="test" enctype="multipart/form-data" action="/test2">
+        <input type="file" name="fileName">
+        <input type="submit">
+    </form>
+    <div th:if="${data}!=null" th:test="${data}"> </div>
+
+
+
     <div align="center">
         <button th:onclick="join()" th:text="|Sign up|"></button>
     </div>

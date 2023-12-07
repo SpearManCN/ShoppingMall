@@ -11,6 +11,8 @@
         ,phone
         ,address
         ,pw
+        ,pictureOriginName
+        ,pictureUuidName
         )
         values(
         #{id}
@@ -19,6 +21,8 @@
         ,#{phone}
         ,#{address}
         ,#{pw}
+        ,#{pictureOriginName}
+        ,#{pictureUuidName}
         )
     </insert>
 
