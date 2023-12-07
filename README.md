@@ -66,7 +66,7 @@
 ㄴ내 정보 페이지와 비밀번호 변경
 
 #### 회원가입시 사진파일 추가, 내 정보에서 사진확인 및 다운로드 (23.12.07 추가)
-<img src="src/main/resources/static/images/upload.png">
+<img src="src/main/resources/static/images/uploadFile.png">
 ㄴ회원가입시 사진파일 추가 가능
 <img src="src/main/resources/static/images/mypage_picture.png">
 ㄴ회원가입시 추가한 사진, 그리고 클릭시 해당 사진파일을 다운로드 할 수 있다.
