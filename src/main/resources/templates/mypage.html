@@ -28,8 +28,6 @@
         <tr th:if="${session.user.pictureUuidName!=null}"
             style="height:500px;" >
             <td colspan="2" >
-                <img width="500px" height="500px" src="/images/files/25852d00-d25b-4ce0-adee-47bac3881f5f.png">
-                <div th:text="'/images/files/'+${session.user.pictureUuidName}"></div>
                 <img width="500px" height="500px" th:src="'/images/files/'+${session.user.pictureUuidName}" th:onclick="'window.location.href = \'/pictureDown\''">
             </td>
         </tr>
