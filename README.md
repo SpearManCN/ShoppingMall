@@ -3,7 +3,7 @@
 #### 프로젝트 1차 완성 = ~ 12.05
 
 #### 파일 업로드 기능 추가 = 12.05~ 12.07
-
+#### 주소 Api 추가 12.08
 #### aws, 소셜 로그인, jwt, 결제 api 시험 = 12.07 ~
 
 ## 세번째 프로젝트
@@ -71,3 +71,6 @@
 <img src="src/main/resources/static/images/mypage_picture.png">
 ㄴ회원가입시 추가한 사진, 그리고 클릭시 해당 사진파일을 다운로드 할 수 있다.
 
+#### 회원가입시 주소 Api 선택 추가 (23.12.08 추가)
+<img src="src/main/resources/static/images/addressApi.png">
+ㄴ회원가입시 주소선택 api 추가
