@@ -13,7 +13,7 @@
 #### 주요 기능  
 제품 리스트 및 상세보기, 찜 / 게시판 리스트 및 작성 / 회원가입 및 정보변경, 로그인, 마이페이지 및 장바구니  
 ### ERD
-<img src="src/main/resources/static/images/erd.png"> 
+<img src="src/main/resources/static/images/erd.png">  
 
 
 
