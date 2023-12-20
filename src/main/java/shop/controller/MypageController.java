@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -149,6 +150,11 @@ public class MypageController {
     //카카오 로그인
 
 
+    @GetMapping("/goKakao")
+    public String goKakao(){
+        return "redirect:https://kauth.kakao.com/oauth/authorize?client_id=089f7b2b7117e7dfafb58a1638cc179e&redirect_uri=http://localhost:8080/home&response_type=code";
+
+    }
 
 
 
