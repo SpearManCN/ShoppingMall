@@ -152,10 +152,18 @@ public class MypageController {
 
     @GetMapping("/goKakao")
     public String goKakao(){
-        return "redirect:https://kauth.kakao.com/oauth/authorize?client_id=089f7b2b7117e7dfafb58a1638cc179e&redirect_uri=http://localhost:8080/home&response_type=code";
+        return "redirect:https://kauth.kakao.com/oauth/authorize?client_id=089f7b2b7117e7dfafb58a1638cc179e&redirect_uri=http://localhost:8080/home2&response_type=code";
 
     }
 
+
+    @GetMapping("/home2")
+    public String goKakao(@RequestParam("code")String code, Model model){
+        model.addAttribute("code", code);
+        return "home";
+
+
+    }
 
 
 }
