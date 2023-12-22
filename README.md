@@ -4,6 +4,7 @@
 
 #### 파일 업로드 기능 추가 = 12.05~ 12.07
 #### 주소 Api 추가 12.08
+#### 소셜 로그인 (kakao) 추가 12.22 
 #### aws 배포 실험, 소셜 로그인 Api 12.11 ~
    
 ## 세번째 프로젝트
@@ -73,3 +74,9 @@
 #### 회원가입시 주소 Api 선택 추가 (23.12.08 추가)
 <img src="src/main/resources/static/images/addressApi.png">
 ㄴ회원가입시 주소선택 api 추가
+
+#### 소셜 로그인 (kakao) api 추가 (23.12.22)
+<img src="src/main/resources/static/images/kakaoLogin1.png">
+ㄴ로그인 화면에서 카카오 로그인을 선택할수 있다.
+<img src="src/main/resources/static/images/kakaoLogin2.png">
+ㄴ카카오 로그인 화면, 이후 홈화면으로 리다이렉트 된다.
