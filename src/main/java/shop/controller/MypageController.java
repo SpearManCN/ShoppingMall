@@ -147,6 +147,7 @@ public class MypageController {
     }
     @RequestMapping("/mypage_logout")
     public String logout(HttpServletRequest request){
+
         request.getSession().invalidate();
         return "home";
     }
@@ -166,8 +167,7 @@ public class MypageController {
 
 
     @GetMapping("/home2")
-    @ResponseBody
-    public String goKakao(@RequestParam("code")String code, Model model){
+    public String goKakao(@RequestParam("code")String code, Model model, HttpServletRequest request){
 
         RestTemplate rt = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -236,13 +236,19 @@ public class MypageController {
         kakaoMember.setNickname((String)map2.get("nickname"));
         kakaoMember.setProfile_image((String)map2.get("profile_image"));
 
+        JoinDTO kakaoJoin = new JoinDTO();
+        kakaoJoin.setId(kakaoMember.getNickname()+"kakao");
+        kakaoJoin.setPhone(1);
+        kakaoJoin.setAddress("1");
+        kakaoJoin.setPw("123");
+        kakaoJoin.setMemberName(kakaoMember.getNickname());
+        kakaoJoin.setBirth(1);
 
-
-
-
-        model.addAttribute("code", code);
-        return "값 : "+ kakaoMember;
-
-
+        if(loginService.selectMember(kakaoJoin)==null){
+            loginService.join(kakaoJoin);
+        }
+        HttpSession session = request.getSession();
+        session.setAttribute("user", kakaoJoin);
+        return "home";
     }
 }
