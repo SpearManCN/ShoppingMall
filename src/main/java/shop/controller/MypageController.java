@@ -1,21 +1,31 @@
 package shop.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriUtils;
 import shop.domain.BasketDTO;
 import shop.domain.JoinDTO;
+import shop.domain.KakaoMember;
+import shop.domain.OauthToken;
 import shop.service.LoginService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +33,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 public class MypageController {
@@ -158,12 +166,83 @@ public class MypageController {
 
 
     @GetMapping("/home2")
+    @ResponseBody
     public String goKakao(@RequestParam("code")String code, Model model){
+
+        RestTemplate rt = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-type","application/x-www-form-urlencoded;charset=utf-8");
+
+        MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
+        params.add("grant_type","authorization_code");
+        params.add("client_id","089f7b2b7117e7dfafb58a1638cc179e");
+        params.add("redirect_uri","http://localhost:8080/home2");
+        params.add("code",code);
+
+        HttpEntity<MultiValueMap<String,String>> kakaoTokenRequest =
+                new HttpEntity<>(params,headers);
+
+        ResponseEntity<String> response = rt.exchange(
+                "https://kauth.kakao.com/oauth/token"
+                , HttpMethod.POST
+                ,kakaoTokenRequest
+                ,String.class
+        );
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        OauthToken oauthToken = null;
+        try{
+            oauthToken = objectMapper.readValue(response.getBody(), OauthToken.class);
+        }catch(JsonMappingException e){
+            e.printStackTrace();
+        }catch(JsonProcessingException e){
+            e.printStackTrace();
+        }
+        System.out.println(oauthToken.getAccess_token());
+
+        // 토큰이용해서 정보가져오기
+        RestTemplate rt2 = new RestTemplate();
+        HttpHeaders headers2 = new HttpHeaders();
+        headers2.add("Authorization","Bearer "+oauthToken.getAccess_token());
+
+        headers2.add("Content-type","application/x-www-form-urlencoded;charset=utf-8");
+
+
+        HttpEntity<MultiValueMap<String,String>> kakaoProfileRequest =
+                new HttpEntity<>(headers2);
+
+        ResponseEntity<String> response2 = rt2.exchange(
+                "https://kapi.kakao.com/v2/user/me"
+                , HttpMethod.POST
+                ,kakaoProfileRequest
+                ,String.class
+        );
+
+
+        //받은 회원정보 json객체를 object로 바꾼뒤 값 꺼내기
+        ObjectMapper objectMapper2 = new ObjectMapper();
+        KakaoMember kakaoMember = new KakaoMember();
+        Map map = new HashMap();
+        Map map2 = new HashMap();
+        try{
+            map = objectMapper2.readValue(response2.getBody(), Map.class);
+        }catch(JsonMappingException e){
+            e.printStackTrace();
+        }catch(JsonProcessingException e){
+            e.printStackTrace();
+        }
+        map2 = (Map) map.get("properties");
+
+        kakaoMember.setNickname((String)map2.get("nickname"));
+        kakaoMember.setProfile_image((String)map2.get("profile_image"));
+
+
+
+
+
         model.addAttribute("code", code);
-        return "home";
+        return "값 : "+ kakaoMember;
 
 
     }
-
-
 }
