@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -22,10 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriUtils;
-import shop.domain.BasketDTO;
-import shop.domain.JoinDTO;
-import shop.domain.KakaoMember;
-import shop.domain.OauthToken;
+import shop.domain.*;
 import shop.service.LoginService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +36,7 @@ import java.util.*;
 @Controller
 public class MypageController {
     @Autowired
+    @Qualifier("loginServiceV2")
     LoginService loginService;
     @Value("${file.dir}")
     private String fileDir;
@@ -109,19 +108,19 @@ public class MypageController {
     @RequestMapping("/joinProc")
     @ResponseBody
     public int joinProc(JoinDTO joinDTO)throws Exception{
-        MultipartFile file = joinDTO.getFileName();
-        if(!file.isEmpty()){
-            String originName = file.getOriginalFilename();
-            int pos = originName.lastIndexOf(".");
-            String ext = originName.substring(pos + 1);
-            String uuid = UUID.randomUUID().toString();
-            String uuidName = uuid + "." + ext;
-            joinDTO.setPictureOriginName(originName);
-            joinDTO.setPictureUuidName(uuidName);
-
-            String fullPath = fileDir + uuidName;
-            file.transferTo(new File(fullPath));
-        }
+//        MultipartFile file = joinDTO.getFileName();
+//        if(!file.isEmpty()){
+//            String originName = file.getOriginalFilename();
+//            int pos = originName.lastIndexOf(".");
+//            String ext = originName.substring(pos + 1);
+//            String uuid = UUID.randomUUID().toString();
+//            String uuidName = uuid + "." + ext;
+//            joinDTO.setPictureOriginName(originName);
+//            joinDTO.setPictureUuidName(uuidName);
+//
+//            String fullPath = fileDir + uuidName;
+//            file.transferTo(new File(fullPath));
+//        }
         return loginService.join(joinDTO);
     }
 

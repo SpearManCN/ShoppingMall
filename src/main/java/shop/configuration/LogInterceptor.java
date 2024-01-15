@@ -10,7 +10,6 @@ public class LogInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle (HttpServletRequest request, HttpServletResponse
             response, Object handler)throws Exception{
-        System.out.println("ggggggggggggggggggggggggggggggggggggg");
         // 사용자 정보가 없으면 /home으로 리다이렉트
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/home");
